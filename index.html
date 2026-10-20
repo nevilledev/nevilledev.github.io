@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Neville Pereira — Systems, Reverse Engineering & Full-Stack Developer</title>
-  <meta name="description" content="Portfolio of Neville Pereira — Software Developer & Reverse Engineer based in Goa, India. Building Android runtime bridges, agentic AI workflows, and 3D web experiences." />
+  <meta name="description" content="Portfolio of Neville Pereira — Software Developer & Reverse Engineer based in Goa, India. Creator of GodotDroid, building Android runtime runners, agentic AI workflows, and 3D web experiences." />
 
   <!-- Three.js (WebGL 3D Engine) & GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -1124,7 +1124,7 @@
             </h1>
 
             <p class="hero-lead hero-reveal">
-              I'm <strong>Neville Pereira</strong>—a developer and reverse engineer who ports desktop game engines (<strong>RPG Maker, Godot 4, Unity</strong>) into standalone <strong>Android APKs</strong>, builds <strong>agentic AI proxy gateways</strong>, and crafts full-stack web experiences.
+              I'm <strong>Neville Pereira</strong>—a developer and reverse engineer who builds standalone <strong>Android runtime runners (GodotDroid)</strong> for desktop games, configures <strong>agentic AI proxy gateways</strong>, and crafts full-stack web experiences.
             </p>
 
             <div class="hero-buttons hero-reveal">
@@ -1177,9 +1177,9 @@
             </div>
 
             <div class="holo-tabs">
-              <button class="holo-tab active" data-arch="rpgm">rpgm2android</button>
-              <button class="holo-tab" data-arch="godot">Godot Runner</button>
+              <button class="holo-tab active" data-arch="godot">GodotDroid</button>
               <button class="holo-tab" data-arch="ai">Agentic AI</button>
+              <button class="holo-tab" data-arch="web">Web &amp; 3D</button>
             </div>
 
             <div class="pipeline-stage" id="pipelineStage">
@@ -1203,7 +1203,7 @@
           <span class="sec-tag">01 // Technical Arsenal</span>
           <h2 class="sec-title">Built where <span>low-level</span> meets high-craft UI.</h2>
           <p class="sec-desc">
-            Most developers stay on one side of the stack. I love digging into binary formats and Android WebView internals just as much as designing fluid React &amp; Three.js interfaces.
+            Most developers stay on one side of the stack. I love digging into binary formats and Android runtime internals just as much as designing fluid React &amp; Three.js interfaces.
           </p>
         </div>
 
@@ -1214,15 +1214,15 @@
               <div class="card-icon-badge"><i class="fab fa-android"></i></div>
               <h3 class="card-title">Reverse Engineering &amp; Mobile Runtime Porting</h3>
               <p class="card-text">
-                Creator of <strong>rpgm2android</strong>—an open-source Python &amp; Kotlin toolchain that converts PC RPG Maker MV/MZ games into standalone native Android APKs without bloated wrappers like Cordova. Experienced in extracting `GDPC` binary headers from Godot 4 `.exe`/`.pck` files, injecting touch-screen control overlays, and debugging compiled APK bytecode.
+                Creator of <strong>GodotDroid</strong>—an Android game runner application built in Godot 4.4 to extract and launch standalone desktop `.pck` and `.exe` game files directly on mobile devices. Experienced in parsing `GDPC` binary headers, injecting custom touch-screen control overlays, and debugging compiled APK bytecode.
               </p>
             </div>
             <div class="pill-group">
+              <span class="tech-pill">GodotDroid</span>
+              <span class="tech-pill">GDScript (Godot 4.4)</span>
               <span class="tech-pill">Kotlin</span>
               <span class="tech-pill">Python</span>
-              <span class="tech-pill">GDScript (Godot 4.4)</span>
-              <span class="tech-pill">NW.js Emulation Shims</span>
-              <span class="tech-pill">Android WebView AssetBridge</span>
+              <span class="tech-pill">GDPC Binary Extraction</span>
               <span class="tech-pill">Unity / C#</span>
               <span class="tech-pill">APK Debugging</span>
             </div>
@@ -1365,7 +1365,7 @@
                 <h3 class="exp-role">Independent Reverse Engineer &amp; Tooling Author</h3>
                 <div class="exp-company">Open-Source Systems &amp; Game Porting</div>
                 <p class="exp-desc">
-                  Engineered <strong>rpgm2android</strong> (Python &amp; Kotlin APK builder with custom NW.js shims for RPG Maker MV/MZ) and standalone Godot 4.4 Android `.pck`/`.exe` runners with touch-overlay injection.
+                  Engineered <strong>GodotDroid</strong> (a standalone Godot 4.4 Android runtime runner that extracts `GDPC` headers from desktop `.exe`/`.pck` binaries and injects custom touch-screen control overlays) alongside full-stack web and AI tooling.
                 </p>
               </div>
 
@@ -1577,29 +1577,29 @@
     // 3. INTERACTIVE ARCHITECTURE PIPELINE SWITCHER (HERO)
     // =========================================================
     const archData = {
-      rpgm: {
-        nodes: [
-          { icon: 'fas fa-folder-open', title: '1. PC Game Asset Extraction', sub: 'Python parses RPG Maker MV/MZ www/ directory & audio/WebGL assets' },
-          { icon: 'fab fa-js', title: '2. Custom NW.js Emulation Shim', sub: 'Injects zero-dependency JS polyfills for desktop fs, path & nw.gui calls' },
-          { icon: 'fab fa-android', title: '3. Kotlin WebView AssetLoader Bridge', sub: 'Compiles standalone native Android APK with hardware-accelerated WebGL' }
-        ],
-        code: `// rpgm2android — Native Kotlin Bridge\nval assetLoader = WebViewAssetLoader.Builder()\n  .addPathHandler("/assets/", AssetsPathHandler(ctx))\n  .build()\nwebView.evaluateJavascript("window.__NW_SHIM_ACTIVE = true;", null)`
-      },
       godot: {
         nodes: [
-          { icon: 'fas fa-file-Archive', title: '1. Binary GDPC Header Scanner', sub: 'Locates magic bytes (0x43504447) inside standalone .exe or .pck files' },
-          { icon: 'fas fa-Memory', title: '2. Runtime Pack Mounting', sub: 'GDScript 2.0 mounts external resource pack dynamically on Android' },
-          { icon: 'fas fa-gamepad', title: '3. Virtual Touch Overlay Injection', sub: 'Renders customizable multi-touch D-pad & action buttons over viewport' }
+          { icon: 'fas fa-file-archive', title: '1. Binary GDPC Header Scanner', sub: 'Locates magic bytes (0x43504447) inside standalone desktop .exe or .pck files' },
+          { icon: 'fas fa-memory', title: '2. GodotDroid Runtime Pack Mounting', sub: 'GDScript 2.0 dynamically mounts external resource packs on Android' },
+          { icon: 'fas fa-gamepad', title: '3. Virtual Touch Overlay Injection', sub: 'Renders customizable multi-touch D-pad & action buttons over the viewport' }
         ],
-        code: `# Godot 4.4 Android Runner — GDScript 2.0\nfunc mount_executable_pck(path: String) -> bool:\n    var ok = ProjectSettings.load_resource_pack(path, true)\n    if ok: TouchOverlay.inject_controls()\n    return ok`
+        code: `# GodotDroid — Godot 4.4 Android Runner (GDScript 2.0)\nfunc mount_executable_pck(path: String) -> bool:\n    var ok = ProjectSettings.load_resource_pack(path, true)\n    if ok: TouchOverlay.inject_controls()\n    return ok`
       },
       ai: {
         nodes: [
-          { icon: 'fas fa-terminal', title: '1. Autonomous Coding CLI', sub: 'Claude Code / OpenCode agent dispatches tool-use & repo edits' },
+          { icon: 'fas fa-terminal', title: '1. Autonomous Coding CLI', sub: 'Claude Code / OpenCode agent dispatches tool-use & multi-file repo edits' },
           { icon: 'fas fa-network-wired', title: '2. Local API Translation Proxy', sub: 'Normalizes streaming tool-calls, context windows & token routing' },
-          { icon: 'fas fa-bolt', title: '3. High-Speed NIM Inference', sub: 'Executes multi-file code generation via NVIDIA NIM endpoints' }
+          { icon: 'fas fa-bolt', title: '3. High-Speed NIM Inference', sub: 'Executes low-latency code generation via NVIDIA NIM endpoints' }
         ],
         code: `# Local Agentic Proxy Gateway\nasync def route_agent_completion(payload: dict):\n    stream = await nim_client.chat.completions.create(\n        model="meta/llama-3.3-70b-instruct", stream=True, **payload\n    )\n    return normalize_tool_stream(stream)`
+      },
+      web: {
+        nodes: [
+          { icon: 'fas fa-cubes', title: '1. Interactive 3D & Canvas Layer', sub: 'Three.js WebGL & procedural HTML5 Canvas 2D shaders with 16-bit aesthetics' },
+          { icon: 'fab fa-react', title: '2. Reactive TypeScript Frontend', sub: 'Component-driven UI with GSAP scroll choreography & state management' },
+          { icon: 'fas fa-cloud-upload-alt', title: '3. Realtime Cloud & Edge Deploy', sub: 'Supabase / Firebase auth & database synced to Vercel production edge' }
+        ],
+        code: `// Full-Stack Web & Realtime Sync\nconst channel = supabase.channel('live-state')\n  .on('postgres_changes', { event: '*', schema: 'public' }, syncViewport)\n  .subscribe();`
       }
     };
 
@@ -1627,7 +1627,7 @@
         renderArch(tab.dataset.arch);
       });
     });
-    renderArch('rpgm');
+    renderArch('godot');
 
     // =========================================================
     // 4. LIVE GITHUB API INTEGRATION (NEVILLEDEV)
